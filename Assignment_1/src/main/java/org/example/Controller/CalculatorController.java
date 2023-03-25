@@ -9,7 +9,9 @@ import org.example.Views.CalculatorView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collections;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class CalculatorController {
 
@@ -29,27 +31,19 @@ public class CalculatorController {
 
               Polynomial p1 = regexExpression.checkPolynom(calculatorView.getPrimulPolinomTextField());
               Polynomial p2 = regexExpression.checkPolynom(calculatorView.getAlDoileaPolinomTextField());
+              Polynomial res = functionList.add(p1,p2);
+              calculatorView.getRezultatTextPane().setText(res.toString(res));
 
-              for(Monom m : p1.getPolynomial().values())
-              {
-                  System.out.println(m.getCoeficient()+"x^"+m.getExponent());
-              }
-
-              System.out.println("\n");
-
-              for(Monom m : p2.getPolynomial().values())
-              {
-                    System.out.println(m.getCoeficient()+"x^"+m.getExponent());
-              }
             }
-
-
         });
 
         calculatorView.getScadereButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Polynomial p1 = regexExpression.checkPolynom(calculatorView.getPrimulPolinomTextField());
+                Polynomial p2 = regexExpression.checkPolynom(calculatorView.getAlDoileaPolinomTextField());
+                Polynomial res = functionList.sub(p1,p2);
+                calculatorView.getRezultatTextPane().setText(res.toString(res));
             }
         });
 
@@ -57,6 +51,10 @@ public class CalculatorController {
         calculatorView.getInmultireButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Polynomial p1 = regexExpression.checkPolynom(calculatorView.getPrimulPolinomTextField());
+                Polynomial p2 = regexExpression.checkPolynom(calculatorView.getAlDoileaPolinomTextField());
+                Polynomial res = functionList.mul(p1,p2);
+                calculatorView.getRezultatTextPane().setText(res.toString(res));
 
             }
         });
@@ -64,6 +62,7 @@ public class CalculatorController {
         calculatorView.getImpartireButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
 
             }
         });

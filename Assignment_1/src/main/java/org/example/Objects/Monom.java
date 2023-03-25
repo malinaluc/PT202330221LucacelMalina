@@ -26,4 +26,6 @@ public class Monom {
     public void setCoeficient(Integer coeficient) {
         this.coeficient = coeficient;
     }
+
+
 }
