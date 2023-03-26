@@ -6,9 +6,24 @@ public class Monom {
 
     private Integer coeficient;
 
+    private Double coeficientIntegrare;
+
     public Monom(Integer exponent, Integer coeficient) {
         this.exponent = exponent;
         this.coeficient = coeficient;
+    }
+
+    public Monom(Integer exponent, Double coeficientIntegrare) {
+        this.exponent = exponent;
+        this.coeficientIntegrare = coeficientIntegrare;
+    }
+
+    public Double getCoeficientIntegrare() {
+        return coeficientIntegrare;
+    }
+
+    public void setCoeficientIntegrare(Double coeficientIntegrare) {
+        this.coeficientIntegrare = coeficientIntegrare;
     }
 
     public Integer getExponent() {

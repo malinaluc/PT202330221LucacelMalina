@@ -2,6 +2,7 @@ package org.example.Functions;
 
 import org.example.Objects.Monom;
 import org.example.Objects.Polynomial;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -9,7 +10,6 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class FunctionList {
-
     public Polynomial add(Polynomial a, Polynomial b)
     {
         Polynomial result = new Polynomial();
@@ -35,7 +35,6 @@ public class FunctionList {
         }
         return result;
     }
-
     public Polynomial sub(Polynomial a , Polynomial b)
     {
         Polynomial result = new Polynomial();
@@ -60,7 +59,6 @@ public class FunctionList {
         }
         return result;
     }
-
     public Polynomial mul(Polynomial a, Polynomial b) {
         Polynomial result = new Polynomial();
         TreeMap<Integer, ArrayList<Monom>> auxMap = new TreeMap<>();
@@ -86,13 +84,40 @@ public class FunctionList {
             }
             Monom rez = new Monom(key,sum);
             result.adaugarePolinom(rez);
-            ///System.out.println("Sum of the coef with key " + key + "is " + sum);
         }
         return result;
     }
+    public Polynomial deriv(Polynomial a)
+    {
+        Polynomial result = new Polynomial();
+        for(Monom m1 : a.getPolynomial().descendingMap().values())
+        {
+            if(m1.getExponent()==0)
+            {
+                a.getPolynomial().remove(m1.getExponent());
+            }
+            else
+            {
+                int coef = m1.getCoeficient() * m1.getExponent();
+                int exp = m1.getExponent() -1;
+                Monom rez = new Monom(exp, coef);
+                result.adaugarePolinom(rez);
+            }
+        }
+        return result;
+    }
+    public Polynomial integ(Polynomial a)
+    {
+        Polynomial result = new Polynomial();
+        for(Monom m1 : a.getPolynomial().descendingMap().values()) {
 
-
-
+            double exp = m1.getExponent() + 1;
+            double coef = m1.getCoeficient() / exp;
+            Monom  rez = new Monom((int)exp,coef);
+            result.adaugarePolinom(rez);
+        }
+        return result;
+    }
 
 }
 
