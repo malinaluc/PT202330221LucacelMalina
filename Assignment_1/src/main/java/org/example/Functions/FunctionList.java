@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class FunctionList {
-    public Polynomial add(Polynomial a, Polynomial b)
+    public static Polynomial add(Polynomial a, Polynomial b)
     {
         Polynomial result = new Polynomial();
         for(Monom m1 : a.getPolynomial().descendingMap().values())
@@ -21,7 +21,6 @@ public class FunctionList {
                 Monom res = new Monom(m1.getExponent(),coef);
                 result.adaugarePolinom(res);
                 b.getPolynomial().remove(m1.getExponent());
-
             }
             else
             {
@@ -35,7 +34,7 @@ public class FunctionList {
         }
         return result;
     }
-    public Polynomial sub(Polynomial a , Polynomial b)
+    public static Polynomial sub(Polynomial a , Polynomial b)
     {
         Polynomial result = new Polynomial();
         for(Monom m1 : a.getPolynomial().descendingMap().values())
@@ -59,7 +58,7 @@ public class FunctionList {
         }
         return result;
     }
-    public Polynomial mul(Polynomial a, Polynomial b) {
+    public static Polynomial mul(Polynomial a, Polynomial b) {
         Polynomial result = new Polynomial();
         TreeMap<Integer, ArrayList<Monom>> auxMap = new TreeMap<>();
         int exp = 0 , coef =0;
@@ -87,7 +86,7 @@ public class FunctionList {
         }
         return result;
     }
-    public Polynomial deriv(Polynomial a)
+    public static Polynomial deriv(Polynomial a)
     {
         Polynomial result = new Polynomial();
         for(Monom m1 : a.getPolynomial().descendingMap().values())
@@ -106,7 +105,7 @@ public class FunctionList {
         }
         return result;
     }
-    public Polynomial integ(Polynomial a)
+    public static Polynomial integ(Polynomial a)
     {
         Polynomial result = new Polynomial();
         for(Monom m1 : a.getPolynomial().descendingMap().values()) {
@@ -118,7 +117,6 @@ public class FunctionList {
         }
         return result;
     }
-
 }
 
 

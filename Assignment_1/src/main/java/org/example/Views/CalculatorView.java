@@ -4,6 +4,7 @@ import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 import lombok.Getter;
+import org.example.Functions.FunctionList;
 
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
@@ -11,7 +12,7 @@ import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.util.Locale;
 
-public class CalculatorView {
+public class CalculatorView extends FunctionList {
 
     @Getter
     private JPanel panel1;

@@ -11,7 +11,6 @@ public class Polynomial {
 
     public Polynomial() {
     }
-
     public TreeMap<Integer, Monom> getPolynomial() {
         return polynomial;
     }
@@ -24,7 +23,6 @@ public class Polynomial {
     {
         polynomial.put(a.getExponent(),a);
     }
-
 
     public String toString( Polynomial p) {
 

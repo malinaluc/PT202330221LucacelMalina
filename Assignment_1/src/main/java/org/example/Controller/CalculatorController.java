@@ -15,27 +15,26 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class CalculatorController {
-
     CalculatorView calculatorView;
     RegexExpression regexExpression;
+
     public void startLogic()
     {
         calculatorView = new CalculatorView();
         GUIFrameSinglePointAccess.changePanel(calculatorView.getPanel1(),"Calculator");
         FunctionList functionList = new FunctionList();
         regexExpression = new RegexExpression();
+        calculatorView.getImpartireButton().setEnabled(false);
 
         calculatorView.getAdunareButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
               Polynomial p1 = regexExpression.checkPolynom(calculatorView.getPrimulPolinomTextField());
               Polynomial p2 = regexExpression.checkPolynom(calculatorView.getAlDoileaPolinomTextField());
               Polynomial res = functionList.add(p1,p2);
               calculatorView.getRezultatTextPane().setText(res.toString(res));
             }
         });
-
         calculatorView.getScadereButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -45,8 +44,6 @@ public class CalculatorController {
                 calculatorView.getRezultatTextPane().setText(res.toString(res));
             }
         });
-
-
         calculatorView.getInmultireButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -56,12 +53,9 @@ public class CalculatorController {
                 calculatorView.getRezultatTextPane().setText(res.toString(res));
             }
         });
-
         calculatorView.getImpartireButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-
             }
         });
 
@@ -73,7 +67,6 @@ public class CalculatorController {
                 calculatorView.getRezultatTextPane().setText(res.toString(res));
             }
         });
-
         calculatorView.getIntegrareButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -91,6 +84,5 @@ public class CalculatorController {
                 calculatorView.getRezultatTextPane().setText("");
             }
         });
-
     }
 }
